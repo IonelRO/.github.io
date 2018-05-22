@@ -1,6 +1,14 @@
 body {
     text-align: center;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .modal{
     display: none;
     position: fixed;
@@ -31,6 +39,7 @@ body {
     border-color: red;
     border-radius: 5px;
 }
+
 .boy-span,
 .cat-span,
 .horn-span,
@@ -38,3 +47,50 @@ body {
 {
 padding-right: 50px;
 }
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 500px;
+    top-bottom: 10px;
+}
+
+h4,
+.score-panel .hearts {
+    /* Stars */
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .hearts li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    /* Restart link */
+    float: right;
+    cursor: pointer;
+}
+
+/*
+ * Styles for stars 
+ */
+
+.hearts {
+    color: #ff0000;
+    font-size: 1.2rem;
+}
+
+a {
+    color: #111111;
+    text-decoration: none;
+}
+
+
+/*

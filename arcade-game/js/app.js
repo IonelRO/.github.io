@@ -1,6 +1,8 @@
 
 let gameStart = false;
-
+// @initianilize colisions
+let colisions = 0;
+hearts();
 //get elements
 const modal = document.getElementById('myModal');
 const m_content = document.querySelector('.modal-content');
@@ -46,12 +48,15 @@ Enemy.prototype.update = function(dt) {
 //Check if collision between player and enemy happen
     if ((player.y < 400) && (player.y > 50)) {
         if (((player.x - this.x) < 40) && ((player.y - this.y) < 40)) {
-            alert('bum');
-            player.reset();
+           
+           
+            hearts();
+            ++colisions;
         }
     }
-};
 
+};
+ 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -157,4 +162,26 @@ const choosePlayer = (selection) => {
     }
 }
 
-console.log (player.sprite);
+// @manage hearts in game
+function hearts() {
+    document.querySelector(".colisions").textContent = `${colisions}`; 
+   console.log (colisions); //@index modal with number of colisions
+    if (colisions === 0) { //@for colisions less than 25 disply 3 stars
+        document.querySelector(".heart1").classList.add("fas", "fa-heart");
+        document.querySelector(".heart2").classList.add("fas", "fa-heart");
+        document.querySelector(".heart3").classList.add("fas", "fa-heart");
+    } else if (colisions === 1) {
+         // after 25 colisions decrement a star
+        document.querySelector(".heart3").classList.remove("fas", "fa-heart");
+        document.querySelector(".heart3").classList.add("far", "fa-heart");
+   
+    } else if (colisions === 2) { //@for colisions les than 35 disply 1 star
+        document.querySelector(".heart2").classList.remove("fas", "fa-heart");
+        document.querySelector(".heart2").classList.add("far", "fa-heart");
+       
+    } else if (colisions === 3) { //@for colisions les than 35 disply 1 star
+        document.querySelector(".heart1").classList.remove("fas", "fa-heart");
+        document.querySelector(".heart1").classList.add("far", "fa-heart");
+    }
+};
+
