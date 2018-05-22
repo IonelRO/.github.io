@@ -49,9 +49,10 @@ Enemy.prototype.update = function(dt) {
     if ((player.y < 400) && (player.y > 50)) {
         if (((player.x - this.x) < 40) && ((player.y - this.y) < 40)) {
            
-           
+           ++colisions;
             hearts();
-            ++colisions;
+            
+            player.reset();
         }
     }
 
