@@ -46,15 +46,16 @@ Enemy.prototype.update = function(dt) {
 
 
 //Check if collision between player and enemy happen
-    if ((player.y < 400) && (player.y > 50)) {
-        if (((player.x - this.x) < 40) && ((player.y - this.y) < 40)) {
+
+   
+        if ((player.x < this.x + 70 && player.x + 50 > this.x) && (player.y < this.y + 40 && player.y + 40 > this.y)) {
            
            ++colisions;
             hearts();
             
             player.reset();
         }
-    }
+   
 
 };
  
