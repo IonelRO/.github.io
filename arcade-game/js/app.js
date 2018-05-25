@@ -2,6 +2,7 @@
 let gameStart = false;
 // @initianilize colisions
 let colisions = 0;
+let score=0;
 hearts();
 //get elements
 const modal = document.getElementById('myModal');
@@ -56,8 +57,16 @@ Enemy.prototype.update = function(dt) {
             player.reset();
         }
    
-
+//-- if Player reachs the water goes back to initial position
+    if(player.y < 30) {
+       score += 100;
+       hearts();
+       player.reset();
+    
+  }
+  console.log(this.speedX);
 };
+
  
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -100,13 +109,13 @@ Player.prototype.handleInput = function (key) {
         this.x -= 100;
     }
     if (key == 'up' && this.y > 0) {
-        this.y -= 100;
+        this.y -= 90;
     }
     if (key == 'right' && this.x < 350) {
         this.x += 100;
     }
     if (key == 'down' && this.y < 400) {
-        this.y -= -100;
+        this.y -= -90;
     }
 };
 
@@ -166,7 +175,7 @@ const choosePlayer = (selection) => {
 
 // @manage hearts in game
 function hearts() {
-    document.querySelector(".colisions").textContent = `${colisions}`; 
+    document.querySelector(".score").textContent = `${score}`; 
    console.log (colisions); //@index modal with number of colisions
     if (colisions === 0) { //@for colisions less than 25 disply 3 stars
         document.querySelector(".heart1").classList.add("fas", "fa-heart");
