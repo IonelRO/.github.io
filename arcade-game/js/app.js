@@ -56,15 +56,18 @@ Enemy.prototype.update = function(dt) {
            
            ++colisions;
             hearts();
-            
             player.reset();
+    
+           
         }
    
 //-- if Player reachs the water goes back to initial position
     if(player.y < 30) {
-       score += 100;
+       score += 1;
        hearts();
-       player.reset();
+       setTimeout(function () {
+         player.reset();
+    }, 410);
     
   }
   console.log(this.speedX);
