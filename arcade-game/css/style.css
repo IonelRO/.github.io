@@ -22,7 +22,9 @@ body {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
-.modal-content{
+.modal-content,
+.modal-content-win
+{
     background-color: #dee6f2;
     opacity: 0.9;
     margin: auto;
@@ -32,7 +34,20 @@ body {
     width: 550px;;
     height: 350px;
 }
-#myBtn {
+.modal-content-loose
+{
+    background-color: #dee6f2;
+    opacity: 0.9;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 550px;;
+    height: 220px;
+}
+#myBtn,
+#myBtn1,
+#myBtn2 {
     background-color: #0b5ce0;
     font-size: 30px;
     color: #e0a70b;

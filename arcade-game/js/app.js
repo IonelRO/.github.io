@@ -1,26 +1,32 @@
 
 let gameStart = false;
-// @initianilize colisions
+// @initianilize colisions and score
 let colisions = 0;
 let score=0;
+// -- draw hearts
 hearts();
 //get elements
 const modal = document.getElementById('myModal');
 const m_content = document.querySelector('.modal-content');
+const m_contentWin = document.querySelector('.modal-content-win');
+const m_contentLoose = document.querySelector('.modal-content-loose');
 const btn = document.getElementById("myBtn");
+const btn1 = document.getElementById("myBtn1");
+const btn2 = document.getElementById("myBtn2");
 restartGame();
 //start timer event listener
 document.getElementById("myBtn").addEventListener("click", startTimer);
-//modal control
+//-- modal control at start
 if(gameStart === true){      
                 modal.style.display = "none";
                 
             }
         else {
-                
                 modal.style.display = "block";                
-              
+                m_contentWin.style.display = "none";
+                m_contentLoose.style.display = "none";
           }
+
 // Enemies our player must avoid
 let Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
@@ -50,27 +56,40 @@ Enemy.prototype.update = function(dt) {
 
 
 //Check if collision between player and enemy happen
-
    
         if ((player.x < this.x + 70 && player.x + 50 > this.x) && (player.y < this.y + 40 && player.y + 40 > this.y)) {
-           
-           ++colisions;
+            ++colisions; // indent collisions
             hearts();
-            player.reset();
-    
-           
+            player.reset();            
         }
    
 //-- if Player reachs the water goes back to initial position
     if(player.y < 30) {
        score += 1;
        hearts();
-       setTimeout(function () {
-         player.reset();
+       setTimeout(function () { // -- delay reset player
+       player.reset();
     }, 410);
-    
+//-- wineer modal open       
+    if(score > 2900){      
+                setTimeout(function () { // -- delay modal open
+       modal.style.display = "block"; 
+                m_contentWin.style.display = "block";               
+                stop();
+    document.getElementById("score").textContent = `You reach ${score} points`
+    document.getElementById("time").textContent = `Your time was ${h4.textContent} minutes`
+    }, 600);
+
+
+}
   }
-  console.log(this.speedX);
+// -- looser modal open  
+  if(colisions === 3){      
+                modal.style.display = "block"; 
+                m_contentLoose.style.display = "block";               
+                stop();
+}
+  
 };
 
  
@@ -94,7 +113,6 @@ let Player = function () {
     this.update();
     this.handleInput();
 };
-
 
 
 Player.prototype.update = function () {};
@@ -149,13 +167,27 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+// -- Restart game
 function restartGame() {  
-      
-    btn.onclick = () => {
+   btn.onclick = () => {
         gameStart = true;
         modal.style.display = "none";
-        m_content.style.display="none";        
+        m_content.style.display="none";
+        m_contentWin.style.display="none";        
     }  
+
+    btn1.onclick = () => {
+        gameStart = true;
+        modal.style.display = "none";
+        m_content.style.display="none";
+        m_contentWin.style.display="none";               
+    }
+    btn2.onclick = () => {
+        gameStart = true;
+        modal.style.display = "none";
+        m_content.style.display="none";
+        m_contentWin.style.display="none";               
+    }   
 };
 
 //select player
@@ -182,7 +214,7 @@ const choosePlayer = (selection) => {
 // @manage hearts in game
 function hearts() {
     document.querySelector(".score").textContent = `${score}`; 
-   console.log (colisions); //@index modal with number of colisions
+    //@index modal with number of colisions
     if (colisions === 0) { //@for colisions less than 25 disply 3 stars
         document.querySelector(".heart1").classList.add("fas", "fa-heart");
         document.querySelector(".heart2").classList.add("fas", "fa-heart");
