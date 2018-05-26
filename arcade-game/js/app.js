@@ -9,6 +9,9 @@ const modal = document.getElementById('myModal');
 const m_content = document.querySelector('.modal-content');
 const btn = document.getElementById("myBtn");
 restartGame();
+//start timer event listener
+document.getElementById("myBtn").addEventListener("click", startTimer);
+//modal control
 if(gameStart === true){      
                 modal.style.display = "none";
                 
@@ -196,3 +199,36 @@ function hearts() {
     }
 };
 
+// @Timer script
+var h4 = document.getElementsByTagName('h4')[0],
+    seconds = 0,
+    minutes = 0,
+    t; // initialize time on html
+// @ function start timer
+function startTimer() { 
+   document.getElementById("myBtn").removeEventListener('click', startTimer);
+       
+    function add() {
+        seconds++;
+        if (seconds >= 60) {
+            seconds = 0;
+            minutes++;
+        }
+
+        h4.textContent = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+        timer();
+
+    }
+
+    function timer() {
+        t = setTimeout(add, 1000);
+    }
+
+    timer();
+}
+
+
+// Stop timer function
+function stop() {
+    clearTimeout(t);
+}
