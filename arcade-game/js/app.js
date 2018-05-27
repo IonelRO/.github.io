@@ -69,7 +69,7 @@ Enemy.prototype.update = function(dt) {
        player.reset();
     }, 410);
 //-- wineer modal open       
-    if(score > 2900){      
+    if(score > 2999){      
                 setTimeout(function () { // -- delay modal open
        modal.style.display = "block"; 
                 m_contentWin.style.display = "block";               
@@ -84,8 +84,10 @@ Enemy.prototype.update = function(dt) {
 // -- looser modal open  
   if(colisions === 3){      
                 modal.style.display = "block"; 
-                m_contentLoose.style.display = "block";               
+                m_contentLoose.style.display = "block";
+                player.reset();                            
                 stop();
+                allowedKeys = false;
 }
   
 };
