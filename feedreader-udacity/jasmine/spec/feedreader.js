@@ -11,7 +11,7 @@ describe('RSS Feeds', function() { /* RSS feed testing unit */
 
         /* Test if allFeeds object and ensures it has a URL defined nd that the URL is not empty.*/
     it("has an URL defined and the URL is not empty", function() {
-        allFeeds.forEach(function(feed) {fined
+        allFeeds.forEach(function(feed) {
         expect(feed.url).toBeDefined(); /* test feed to be defined*/
         expect(feed.url.length).not.toBe(0); /* test feed not to be empty*/
         expect(feed.url).toMatch(/^(http|https):\/\//); /* test feed prefix start*/
