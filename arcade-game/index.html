@@ -19,9 +19,9 @@
                <li class="heart3"><i class=""></i></li>
             </ul>
             <!-- Time display -->
-            <h4><time>00:00</time></h4>
+            Time: <h4><time>00:00</time></h4>
             <!-- Moves display -->
-            <span class="colisions"> </span> points
+            <span class="score"> </span> points
             <!-- Restart modul -->
             <div class="restart" onclick="startGame()">Restart
                <a href=""><i class="fas fa-redo-alt"></i></a>
@@ -48,12 +48,33 @@
             </div>
             <div>
                 <h3>Instructions:</h3>
-                <p>Select your character. Cross the water and try to colect diamonds. <br>Avoid the bugs. <br> Good Luck</p>
+                <p>Select your character. Cross the water and try to colect 3000 points. <br>Avoid the bugs. <br> Good Luck</p>
             </div>
             <button id="myBtn">Start Game</button>
-        </div>
-        </div>
 
+        </div>
+        </div>
+		<div class="modal-content-win">
+            <div class="caracters">
+            	 
+            <img src="images/Winner.png" alt="Game Over" class="over">
+            <p id="score"></p>
+            <p id="time"></p>      
+            
+            <div class="restart" onclick="startGame()">
+               <a href=""><button id="myBtn1">Play again</button></a>
+            </div>
+        </div>
+        </div>
+        <div class="modal-content-loose">
+            <div class="caracters">
+            <img src="images/Game Over.gif" alt="Game Over" class="over">
+
+           <div class="restart" onclick="startGame()">
+               <a href=""><button id="myBtn2">Play again</button></a>
+            </div>
+        </div>
+        </div>
 
 
     <script src="js/resources.js"></script>
