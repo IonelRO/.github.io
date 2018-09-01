@@ -1,104 +1,222 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
    <head>
       <meta charset="utf-8">
-      <title>Matching Game</title>
-      <meta name="description" content="">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-      <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
-      <link rel="stylesheet" href="css/app.css">
+      <!-- Favicon -->
+      <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="images/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+      <!--Customized CSS-->
+      <link rel="stylesheet" href="css/styles.css">
       <link rel="stylesheet" href="css/normalize.css">
+      <!--Boostrap CSS-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <!--animate CSS-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+      <!--FontAwesome link-->
+      <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+      <title>Portofolio project</title>
    </head>
    <body>
-      <div class="container">
-         <header>
-            <h1>Matching Game</h1>
-         </header>
-         <!-- Score pannel -->
-         <section class="score-panel">
-            <!-- Stars display -->
-            <ul class="stars">
-               <li class="star1"><i class=""></i></li>
-               <li class="star2"><i class=""></i></li>
-               <li class="star3"><i class=""></i></li>
-            </ul>
-            <!-- Time display -->
-            <h4><time>00:00</time></h4>
-            <!-- Moves display -->
-            <span class="moves"> </span> Moves
-            <!-- Restart modul -->
-            <div class="restart" onclick="startGame()">Restart
-               <a href=""><i class="fas fa-redo-alt"></i></a>
-            </div>
-         </section>
-         <!-- Deck and card drawing -->
-         <ul class="deck">
-            <li class="card">
-               <i class="fa fa-graduation-cap"></i>
-            </li>
-            <li class="card">
-               <i class="fab fa-d-and-d"></i>
-            </li>
-            <li class="card">
-               <i class="fa fa-thumbs-up"></i>
-            </li>
-            <li class="card">
-               <i class="fas fa-bicycle"></i>
-            </li>
-            <li class="card">
-               <i class="fab fa-optin-monster"></i>
-            </li>
-            <li class="card">
-               <i class="fas fa-birthday-cake"></i>
-            </li>
-            <li class="card">
-               <i class="fab fa-github"></i>
-            </li>
-            <li class="card">
-               <i class="fa fa fa-heartbeat"></i>
-            </li>
-            <li class="card">
-               <i class="fa fa-graduation-cap"></i>
-            </li>
-            <li class="card">
-               <i class="fab fa-github"></i>
-            </li>
-            <li class="card">
-               <i class="fa fa-thumbs-up"></i>
-            </li>
-            <li class="card">
-               <i class="fab fa-d-and-d"></i>
-            </li>
-            <li class="card">
-               <i class="fab fa-optin-monster"></i>
-            </li>
-            <li class="card">
-               <i class="fas fa-birthday-cake"></i>
-            </li>
-            <li class="card">
-               <i class="fas fa-bicycle"></i>
-            </li>
-            <li class="card">
-               <i class="fa fa fa-heartbeat"></i>
-            </li>
-         </ul>
-         <!-- The Modal -->
-         <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-               <span class="close">&times;</span>
-
-               <!-- Modal restart button -->
-               <div class="restart" onclick="startGame()"><p>
-                  <a class="rev" href="">Play again</a> </p>
-                  <p id="moves"></p>
-                  <p id="time"></p>
-                  <p id="ranking"></p>
-                </div>
+    <!-- Header logo and student info-->
+      <header class="bg-light w-100">
+         <div class="container">
+            <div class="row">
+               <div class="col">
+                  <img class="logoImage" src="images/better_logo_200.png" alt="Project logo">
+               </div>
+               <div class="col text-right align-bottom">
+                  <h1 class="student">DOBRE IONEL</h1>
+               </div>
             </div>
          </div>
-       </div>
-      <script src="js/app.js"></script>
+           <div class="text-white">
+         <h2 class="container feature bg-info text-right">Front-end & UX-ninja</h2>
+      </div>
+       </header>
+         <!-- banner start -->
+           <div  class="banner w-100">
+            <div class="container fixed-image text-white">
+               <div class="row align-middle">
+                  <article class="bar feature text-center citat">
+                     <h2>Minds are like parachutes.</h2>
+                     <h4>They only function when open.</h4>
+                  </article>
+               </div>
+            </div>
+         </div>
+         <!-- banner end -->
+         <!-- Fetured work-->
+         <h2 class="container feature bg-info text-white">Featured work</h2>
+      <main class="container">
+         <div class="row">
+         <!--First card-->
+            <article class="col order-first">
+               <div class="card w-90">
+                  <a href="https://ionelro.github.io/pixel-art-project/"><img class="card-img-top" sizes="33vw" src="images/artPixel_600.jpg" srcset="images/artPixel_400.jpg 400w, images/artPixel_600.jpg 600w" alt="Pixel art project"></a>
+                  <div class="panel-group">
+                     <div class="panel panel-default">
+                        <div class="card-body">
+                           <h5 class="card-title">Pixel art</h5>
+                           <h6 class="card-text"><strong>TASKS:</strong>build a page to draw pixel art on a customizable canvas</h6>
+                        </div>
+                        <!--list-group-item-action make hover styles-->
+                        <ul class="list-group list-group-flush">
+                           <li class="list-group-item list-group-item-action"><strong>Languages:</strong> CSS, Html</li>
+                           <li class="list-group-item list-group-item-action"><strong>Customisation:</strong> delete button, toogle class, rounded pixels</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!--Collapsed content-->
+                  <div class="panel-group">
+                     <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                           <h5 class="card-clps-title card-title">
+                             <a data-toggle="collapse" href="#collapse4"><i class="fas fa-plus-circle"></i></a>Pixel art
+                           </h5>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse">
+                           <ul class="collapse2 list-group list-group-flush">
+                              <li class="list-group-item"><strong>TASKS:</strong> build a page to draw pixel art on a customizable canvas</li>
+                              <li class="list-group-item list-group-item-action"><strong>Languages:</strong> CSS, Html</li>
+                              <li class="list-group-item list-group-item-action"><strong>Customisation:</strong> delete button, toogle class, rounded pixels </li>
+                           </ul>
+                        </div>
+                        <div class="card-body list-group-item list-group-item-action">
+                           <a href="https://ionelro.github.io/pixel-art-project/" class="card-link">Pixel art link</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </article>
+            <!--Third card-->
+            <article class="col order-last">
+               <div class="card w-90 last">
+                  <a href="https://ionelro.github.io/brighton-times/">
+                  <img class="card-img-top"  sizes="33vw" src="images/brTown_600.jpg" srcset="images/brTown_200.jpg 200w, images/brTown_400.jpg 400w, images/brTown_600.jpg 600w" alt="Brighton Times project">
+                  </a>
+                  <div class="panel-group">
+                     <div class="panel panel-default">
+                        <div class="card-body">
+                           <h5 class="card-title">Brighton Times</h5>
+                           <h6 class="card-text"><strong>TASKS:</strong> customize a web page to become responsive</h6>
+                        </div>
+                        <!--list-group-item-action make hover styles-->
+                        <ul class="list-group list-group-flush">
+                           <li class="list-group-item list-group-item-action"><strong>Languages:</strong> CSS, Html</li>
+                           <li class="list-group-item list-group-item-action"><strong>Customisation:</strong> ellipsis, responsive images, breackpoints</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!--Collapsed content-->
+                  <div class="panel-group">
+                     <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                           <h5 class="card-clps-title card-title">
+                              <a data-toggle="collapse" href="#collapse3"><i class="fas fa-plus-circle"></i></a>Brighton Times
+                           </h5>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                           <ul class="collapse2 list-group list-group-flush">
+                              <li class="list-group-item"><strong>TASKS:</strong> customize a web page to become responsive</li>
+                              <li class="list-group-item list-group-item-action"><strong>Languages:</strong> CSS, Html</li>
+                              <li class="list-group-item list-group-item-action"><strong>Customisation:</strong> ellipsis, responsive images, breackpoints </li>
+                           </ul>
+                        </div>
+                        <div class="card-body list-group-item list-group-item-action">
+                           <a href="https://ionelro.github.io/brighton-times/" class="card-link">Brighton Times link</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </article>
+             <!--second Card-->
+            <article class="col">
+               <div class="card w-90 second">
+                  <a href="https://ionelro.github.io/animalCard/"><img class="card-img-top"  sizes="33vw" src="images/aCard_600.jpg" srcset="images/aCard_200.jpg 200w, images/aCard_400.jpg 400w, images/aCard_600.jpg 600w" alt="Animal card project"></a>
+                  <div class="panel-group">
+                     <div class="panel panel-default">
+                        <div class="card-body">
+                           <h5 class="card-title">Animal card</h5>
+                           <h6 class="card-text"><strong>TASKS:</strong> re-create a webpage from a design prototype</h6>
+                        </div>
+                        <!--list-group-item-action make hover styles-->
+                        <ul class="list-group list-group-flush">
+                           <li class="list-group-item list-group-item-action"><strong>Languages:</strong> CSS, Html</li>
+                           <li class="list-group-item list-group-item-action"><strong>Customisation:</strong> card shadow, rounded borders</li>
+                        </ul>
+                     </div>
+                  </div>
+                 <!--Collapsed content-->
+                  <div class="panel-group">
+                     <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                           <h5 class="card-clps-title card-title">
+                              <a data-toggle="collapse" href="#collapse1"><i class="fas fa-plus-circle"></i></a>Animal card
+                           </h5>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                           <ul class="collapse2 list-group list-group-flush">
+                              <li class="list-group-item"><strong>TASKS:</strong> re-create a webpage from a design prototype</li>
+                              <li class="list-group-item list-group-item-action"><strong>Languages:</strong> CSS, Html</li>
+                              <li class="list-group-item list-group-item-action"><strong>Customisation:</strong> card shadow, rounded borders </li>
+                           </ul>
+                        </div>
+                        <div class="card-body list-group-item list-group-item-action">
+                           <a href="https://ionelro.github.io/animalCard/" class="card-link">Animal card link</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </article>
+         </div>
+      </main>
+       <!--Boostrap scripts-->
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><footer class="bg-light w-100">
+         <div class="container">
+            <div class="row">
+               <div class="col">
+                  <h1 class="container-fluid text-left contact">Contact</h1>
+                  <!--Twitter-->
+                  <a href="https://twitter.com/AsPsihGorjeni" class="btn-floating btn-lg btn-tw">
+                  <i class="fab fa-twitter fa-2x"></i></a>
+                  <!--Facebook-->
+                  <a href="https://www.facebook.com/Psihologi?fref=ts" class="btn-floating btn-lg btn-fb">
+                  <i class="fab fa-facebook-f fa-2x"></i></a>
+                  <!--Linkedin-->
+                  <a href="https://www.linkedin.com/in/ionel-dobre-389ab552/" class="btn-floating btn-lg btn-li">
+                  <i class="fab fa-linkedin fa-2x"></i></a>
+               </div>
+                <!-- Site validation and languages -->
+               <div class="col text-center">
+                  <img class="img-w3" sizes="35vw" src="images/html_css_400.png" srcset="images/html_css_400.png 400w, images/html_css_600.png 600w" alt="Html5 valid">
+               </div>
+               <div class="col text-center">
+                  <img class="img-b" sizes="15vw" src="images/bootstrap-stack_400.png" srcset="images/bootstrap-stack_400.png 400w, images/bootstrap-stack_600.png 600w" alt="Boostrap">
+               </div>
+            </div>
+            <div class="col text-center copyright">
+               ©2018 - Some rights reserved. Boostrap Framework.
+            </div>
+         </div>
+      </footer>
    </body>
 </html>
